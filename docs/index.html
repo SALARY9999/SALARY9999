@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SALARY9999 的个人博客，收录技术笔记和 GitHub 项目。">
+  <meta name="theme-color" content="#f6f5f1">
+  <title>SALARY9999 · 个人博客</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #f6f5f1;
+      --ink: #171916;
+      --muted: #52574f;
+      --rule: #c9cac1;
+      --accent: #dce8b8;
+      --green: #364424;
+      --sans: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+      --serif: "Noto Serif SC", "Songti SC", SimSun, serif;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font: 1rem/1.65 var(--sans); }
+    a { color: inherit; text-underline-offset: .25em; }
+    a:hover { color: #455823; }
+    :focus-visible { outline: 2px solid #455823; outline-offset: 5px; }
+    .wrap { width: min(100% - 3rem, 70rem); margin-inline: auto; }
+    .skip { position: absolute; top: -4rem; left: 1rem; padding: .5rem 1rem; background: var(--accent); }
+    .skip:focus { top: 1rem; }
+    .masthead { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: .75rem 1.5rem; min-height: 4.5rem; padding: .75rem 0; border-bottom: 1px solid var(--rule); }
+    .brand, .masthead nav a { text-decoration: none; }
+    .brand { font: 700 1rem/1.2 ui-monospace, Consolas, monospace; }
+    .masthead nav { display: flex; flex-wrap: wrap; gap: .5rem 1.5rem; font-size: .9rem; }
+    .masthead nav a:hover { text-decoration: underline; }
+    .hero { display: grid; grid-template-columns: 1.15fr .85fr; gap: 2rem; align-items: center; padding-block: clamp(2.5rem, 7vw, 5.75rem); }
+    .hero h1 { font: 800 clamp(2.75rem, 8vw, 7rem)/.98 Georgia, serif; letter-spacing: -.075em; margin: .5rem 0 1.1rem; }
+    .eyebrow { color: var(--green); font-weight: 700; font-size: .9rem; letter-spacing: .12em; }
+    .hero p { margin: 0 0 1.65rem; color: var(--muted); font-size: 1.07rem; }
+    .primary { display: inline-block; padding: .6rem 1.1rem; background: var(--accent); color: var(--ink); border: 1px solid var(--green); text-decoration: none; font-weight: 700; }
+    .primary:hover { background: #cadb9c; }
+    .portrait { width: min(100%, 24rem); aspect-ratio: 1.18; margin: 0 0 0 auto; overflow: hidden; background: #282924; padding: .6rem; }
+    .portrait img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 36%; display: block; }
+    .section { display: grid; grid-template-columns: minmax(9rem, .7fr) minmax(0, 2.3fr); gap: 1rem 2rem; padding-block: 2rem 2.9rem; border-top: 1px solid var(--ink); }
+    h2 { font: 700 1.6rem/1.4 var(--serif); margin: 0; }
+    .section-intro { margin: .4rem 0 0; color: var(--muted); font-size: .9rem; }
+    .entries { min-width: 0; }
+    .entry, .project { border-bottom: 1px solid var(--rule); }
+    .entry summary, .project { padding: .9rem 0 1rem; }
+    .entry:first-child summary, .project:first-child { padding-top: .2rem; }
+    .entry summary { display: grid; grid-template-columns: minmax(0, 1fr) 1.5rem; gap: .3rem .9rem; cursor: pointer; list-style: none; }
+    .entry summary::-webkit-details-marker { display: none; }
+    .entry summary:hover .entry-title { text-decoration: underline; text-underline-offset: .25em; }
+    .entry summary::after { grid-area: 1 / 2 / 4 / 3; content: "+"; justify-self: end; align-self: center; font: 1.4rem/1 Arial, sans-serif; }
+    .entry[open] summary::after { content: "−"; }
+    .entry-meta { color: var(--green); font-size: .88rem; }
+    .entry-title { font-weight: 750; font-size: clamp(1.12rem, 2.5vw, 1.38rem); line-height: 1.45; }
+    .summary, .project p { color: var(--muted); margin: 0; }
+    .entry article { padding: .1rem 1.5rem 1.1rem 0; max-width: 67ch; }
+    .entry article p { margin: .75rem 0; }
+    .entry article ol { padding-inline-start: 1.5rem; }
+    .entry article li + li { margin-top: .5rem; }
+    .project a { font: 700 1.05rem/1.5 ui-monospace, Consolas, monospace; }
+    .project p { margin-top: .2rem; }
+    footer { display: flex; justify-content: space-between; flex-wrap: wrap; gap: .5rem 1.5rem; padding-block: 1.2rem 2.5rem; border-top: 1px solid var(--rule); color: var(--muted); font-size: .9rem; }
+    @media (max-width: 42rem) {
+      .wrap { width: min(100% - 2rem, 70rem); }
+      .hero, .section { grid-template-columns: 1fr; }
+      .hero { gap: 1.65rem; }
+      .portrait { margin: 0; width: min(100%, 21rem); }
+      .section { padding-block: 1.6rem 2.1rem; }
+    }
+  </style>
+</head>
+<body id="top">
+  <a class="skip" href="#main">跳到正文</a>
+  <div class="wrap">
+    <header class="masthead">
+      <a class="brand" href="./">SALARY9999</a>
+      <nav aria-label="主要导航">
+        <a href="#notes">技术笔记</a>
+        <a href="#projects">项目</a>
+        <a href="https://github.com/SALARY9999">GitHub</a>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section class="hero" aria-labelledby="title">
+        <div>
+          <span class="eyebrow">个人博客</span>
+          <h1 id="title">SALARY9999</h1>
+          <p>记录开发中的问题、尝试和结论。</p>
+          <a class="primary" href="#notes">阅读技术笔记</a>
+        </div>
+        <figure class="portrait">
+          <img src="https://github.com/SALARY9999.png?size=640" width="640" height="640" alt="SALARY9999 的黑白插画头像">
+        </figure>
+      </section>
+
+      <section class="section" id="notes" aria-labelledby="notes-title">
+        <div>
+          <h2 id="notes-title">技术笔记</h2>
+          <p class="section-intro">展开标题阅读正文。</p>
+        </div>
+        <div class="entries">
+          <details class="entry" id="rag">
+            <summary>
+              <span class="entry-meta">RAG</span>
+              <span class="entry-title">RAG 笔记：从一次检索失败开始</span>
+              <span class="summary">用一条失败样例检查数据、召回和生成。</span>
+            </summary>
+            <article aria-label="RAG 笔记：从一次检索失败开始">
+              <p>当 RAG 给出错误答案，先选一条能稳定复现的问题。把原始问题、预期答案、能够支持答案的原文和系统实际输出放在一起，就能逐步定位信息在哪里丢失。</p>
+              <ol>
+                <li><strong>检查数据。</strong>在索引里找到预期段落，确认正文已被提取，切分后仍保留条件、单位和例外条款。</li>
+                <li><strong>检查召回和排序。</strong>查看召回候选，再查看重排后实际交给模型的片段。候选中缺少证据时，检查过滤条件、关键词或向量检索。证据在重排后消失时，检查排序和上下文预算。</li>
+                <li><strong>检查生成。</strong>把正确段落单独提供给模型，对照回答和原文。记录遗漏、误读和无法支持的断言。</li>
+              </ol>
+              <p>修复后用同一条问题再跑一遍，并保留输入、候选片段和输出。再复查几个原本能答对的问题，确认改动没有破坏已有表现。</p>
+              <p><a href="https://github.com/SALARY9999/all-in-rag">相关学习资料：all-in-rag</a></p>
+            </article>
+          </details>
+
+          <details class="entry" id="hello">
+            <summary>
+              <span class="entry-meta">博客</span>
+              <span class="entry-title">给博客留一份开篇</span>
+              <span class="summary">这个博客会记录什么，以及一篇笔记可以怎样组织。</span>
+            </summary>
+            <article aria-label="给博客留一份开篇">
+              <p>这里收录技术笔记和项目链接。一个值得留下来的问题，可以从它出现的场景写起，再补上尝试过的方法、用来验证的证据，以及目前能得出的结论。</p>
+              <p>项目相关的笔记可以附上对应仓库和复现条件。尚待验证的地方也可以保留下来，方便后续回头继续。</p>
+            </article>
+          </details>
+        </div>
+      </section>
+
+      <section class="section" id="projects" aria-labelledby="projects-title">
+        <div>
+          <h2 id="projects-title">项目</h2>
+          <p class="section-intro"><a href="https://github.com/SALARY9999?tab=repositories">查看全部仓库</a></p>
+        </div>
+        <div class="entries">
+          <div class="project">
+            <a href="https://github.com/SALARY9999/deepsearch">deepsearch</a>
+            <p>Python 仓库</p>
+          </div>
+          <div class="project">
+            <a href="https://github.com/SALARY9999/WRC">WRC</a>
+            <p>Python 仓库</p>
+          </div>
+          <div class="project">
+            <a href="https://github.com/SALARY9999/all-in-rag">all-in-rag</a>
+            <p>Datawhale RAG 教程的 Fork</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <a href="https://github.com/SALARY9999">SALARY9999 on GitHub</a>
+      <a href="#top">回到顶部</a>
+    </footer>
+  </div>
+  <script>
+    function openLinkedNote() {
+      const note = document.getElementById(window.location.hash.slice(1));
+      if (note instanceof HTMLDetailsElement) {
+        note.open = true;
+      }
+    }
+
+    window.addEventListener("hashchange", openLinkedNote);
+    openLinkedNote();
+  </script>
+</body>
+</html>
